@@ -33,14 +33,14 @@
  * @param {string} query
  * @returns {Promise<AICSearchResponse>}
  */
-export function searchArtworks(query) {
+export async function searchArtworks(query) {
 	/**
-	 * Get data from `ARTWORKS_SEARCH_RESULT.json`, whuch is served by our
+	 * Get data from `ARTWORKS_SEARCH_RESULT.json`, which is served by our
 	 * local server.
-	 * TODO: replace with path to `/artworks/search/` endpoint,
-	 * as described in README.md.
 	 */
-	const requestUrl = `./ARTWORKS_SEARCH_RESULT.json`;
+	const requestUrl = `/ARTWORKS_SEARCH_RESULT.json?query=${encodeURIComponent(
+		query,
+	)}`;
 
 	/**
 	 * We know the API serves JSON data, but
@@ -48,9 +48,14 @@ export function searchArtworks(query) {
 	 * */
 	const headers = { Accept: 'application/json' };
 
-	return fetch(requestUrl, { headers }).then((res) => {
-		if (res.ok) {
-			return res.json();
-		}
-	});
+	return fetch(requestUrl, { headers })
+		.then((res) => {
+			if (res.ok) {
+				return res.json();
+			}
+			console.error('Failed to fetch data from the server');
+		})
+		.catch((error) => {
+			console.error('Fetch error:', error);
+		});
 }
