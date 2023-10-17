@@ -46,7 +46,7 @@ Your team has agreed on the following requirements for the app's MVP (minimum vi
 
 - [x] Create a `searchArtworks` function for making GET requests to `/search/artworks/`. See `src/api.js`
   - [x] Request a local copy of data in `searchArtworks` to avoid making too many requests to the AIC's search endpoint while the app is in development
-  - [ ] **When the UI is complete**, ensure that `searchArtworks` makes requests to the AIC's `/artworks/search/` endpoint, as described in "Using the `/artworks/search/` endpoint"
+  - [x] **When the UI is complete**, ensure that `searchArtworks` makes requests to the AIC's `/artworks/search/` endpoint, as described in "Using the `/artworks/search/` endpoint"
 - [x] Create a `SearchForm` component that will allow the user to perform a search. See `src/components/SearchForm.jsx`
   - [x] Fix a known bug: the whole app refreshes when `SearchForm` is submitted
 - [x] In the `App` component, render
