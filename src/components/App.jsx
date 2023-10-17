@@ -7,15 +7,36 @@ import { Footer } from './Footer';
 import './App.css';
 
 export function App() {
+	const [searchResults, setSearchResults] = useState([]);
+	const [showInvalidQuery, setShowInvalidQuery] = useState('');
+
 	function onSearchSubmit(query) {
 		// Search for the users's query.
-		// TODO: render the results, instead of logging them to the console.
-		// NOTE: `searchArtworks` currently returns local data, so that we
-		// don't make too many requests to the API! Once we've built out
-		// our UI, we need to make real requests!
-		// @see: ./src/api.js
 		searchArtworks(query).then((json) => {
-			console.log(json);
+			const filteredResults = json.data.filter((artwork) => {
+				const lowerCaseQuery = query.toLowerCase();
+				const lowerCaseTitle = artwork.title.toLowerCase();
+				// first, double check if the artist_title exists
+				const lowerCaseArtistTitle =
+					artwork.artist_title && artwork.artist_title.toLowerCase();
+
+				return (
+					lowerCaseTitle.includes(lowerCaseQuery) ||
+					// first, double check if the lowerCaseArtistTitle exists
+					(lowerCaseArtistTitle &&
+						lowerCaseArtistTitle.includes(lowerCaseQuery))
+				);
+			});
+
+			if (query.trim() === '' || filteredResults.length === 0) {
+				setSearchResults([]);
+				setShowInvalidQuery(
+					'No results found for the artist or title. Please try a different search.',
+				);
+			} else {
+				setSearchResults(filteredResults);
+				setShowInvalidQuery('');
+			}
 		});
 	}
 
@@ -23,6 +44,18 @@ export function App() {
 		<div className="App">
 			<h1>TCL Career Lab Art Finder</h1>
 			<SearchForm onSearchSubmit={onSearchSubmit} />
+			<div>
+				<h2>Search Results</h2>
+				<ul>
+					{searchResults.map((artwork) => (
+						<li key={artwork.image_id}>
+							<h3>{artwork.title}</h3>
+							<p>Artist: {artwork.artist_title || 'Unknown'}</p>
+						</li>
+					))}
+				</ul>
+				{showInvalidQuery && <p>{showInvalidQuery}</p>}
+			</div>
 			<Footer />
 		</div>
 	);
