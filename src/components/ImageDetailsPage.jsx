@@ -1,16 +1,18 @@
 import './ImageDetailsPage.css';
-export function ImageDetailsPage({ artwork }) {
-	// const { artist_title, title } = artwork;
+
+export function ImageDetailsPage({ artwork, goBack }) {
+	const { artist_title, title, image_id, thumbnail } = artwork;
+
+	const imgUrl = `https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`;
+
 	return (
-		<li>
-			{/* 
-			- Add the name of the piece
-			- The artist who created the piece
-			- The image associated with the piece
-			- a back button that returns the user to the list of results 
-			*/}
-			<button>Back</button>
-			<p>The art title was created by artist</p>
-		</li>
+		<div>
+			<button onClick={goBack}>Back</button>
+			<p>
+				The art {title} was created by {artist_title ? artist_title : 'Unknown'}{' '}
+				artist.
+			</p>
+			<img alt={thumbnail ? thumbnail.alt_text : title} src={imgUrl} />
+		</div>
 	);
 }
