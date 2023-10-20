@@ -4,6 +4,10 @@ Your team has been developing an app that allows users to search for public-doma
 
 ❗ **Please limit your time spent on this project to no more than _one hour_.** If you don't finish all the acceptance criteria, that's okay! Our goal is to give you something to discuss with your interviewer at the next stage, whether the project is feature-complete or not. You can chat with your interviewer about what you would do with more time.
 
+## Demo
+
+![Demo](/public/career-lab.gif)
+
 ## Local development setup
 
 Clone the repository to your local machine by running the following command.
@@ -29,8 +33,6 @@ Start the application by executing the following command. It will open a new win
 ```
 npm start
 ```
-
-![Demo](/public/career-lab.gif)
 
 ## ✅ Acceptance criteria
 
