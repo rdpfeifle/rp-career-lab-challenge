@@ -9,13 +9,13 @@ Your team has been developing an app that allows users to search for public-doma
 Clone the repository to your local machine by running the following command.
 
 ```
-git clone https://github.com/rdpfeifle/career-lab-challenge-next
+git clone https://github.com/rdpfeifle/rp-career-lab-challenge
 ```
 
 Change the directory to the cloned repository.
 
 ```
-cd career-lab-challenge-next
+cd rp-career-lab-challenge
 ```
 
 Open the project using your favorite text editor, and install the necessary dependencies by running:
