@@ -6,39 +6,29 @@ Your team has been developing an app that allows users to search for public-doma
 
 ## Local development setup
 
-To get started, you'll need to initialize a new Git repository using this repository as a template. You can do that one of two ways:
-
-- [with the Github GUI](#initialize-your-repo-from-this-template-with-the-github-gui), or
-- [with the GitHub CLI](#initialize-your-repo-from-this-template-with-the-github-cli).
-
-After that, proceed to the [acceptance criteria](#acceptance-criteria) section.
-
-### Initialize your repo from this template with the GitHub GUI
-
-1. Click the "Use this template" button on the GitHub page for this repo. It's located above this readme, and above the preview of the project's file structure.
-2. On the next page, give your new repo a name. Make sure the repository is public!
-3. Click "Create repository from template". Your repository will generate and you will be navigated to its GitHub page.
-4. Click the "Code" button to reveal the command you can run to clone your repo to your computer, then click the "copy" button (it looks like a clipboard).
-   <img src="https://camo.githubusercontent.com/36eafd97d2b6b3cf1c6b33f008063f50b87ae5eed76d9ff3ed650595534da4eb/68747470733a2f2f63646e2e7a617070792e6170702f66646462353531666534393462666331386431386533303039633435356233302e706e67" width="600" alt="">
-5. Run that code in your terminal
-6. `cd` into your new directory
-7. Run `npm ci` to install the project's dependencies
-
-Now, to develop the app locally, run `npm start`. A new window will open in your browser. Happy coding!
-
-### Initialize your repo from this template with the GitHub CLI
-
-In your terminal, `cd` into the folder you want your project to live in and run the following commands:
+Clone the repository to your local machine by running the following command.
 
 ```
-# Generate a new repo from this template with the name `take-home-assignment`
-# and clone it to your computer in a new folder named `take-home-assignment`
-gh repo create take-home-assignment --template the-collab-lab/career-lab-assignment-next --public --clone
-# Move into this new folder and install the project's dependencies
-cd take-home-assignment && npm ci
+git clone https://github.com/rdpfeifle/career-lab-challenge-next
 ```
 
-Now, to develop the app locally, run `npm start`. A new window will open in your browser. Happy coding!
+Change the directory to the cloned repository.
+
+```
+cd career-lab-challenge-next
+```
+
+Open the project using your favorite text editor, and install the necessary dependencies by running:
+
+```
+npm install
+```
+
+Start the application by executing the following command. It will open a new window/tab in your default web browser.
+
+```
+npm start
+```
 
 ## ✅ Acceptance criteria
 
