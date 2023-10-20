@@ -1,7 +1,7 @@
 import { useState } from 'react';
-
 import { searchArtworks } from '../api';
 import { SearchForm } from './SearchForm';
+import { ImageDetailsPage } from './ImageDetailsPage';
 import { Footer } from './Footer';
 
 import './App.css';
