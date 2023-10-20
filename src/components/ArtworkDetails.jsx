@@ -1,10 +1,12 @@
-export function ArtworkDetails({ searchResults }) {
+export function ArtworkDetails({ searchResults, onArtworkSelect }) {
 	return (
 		<>
 			{searchResults.map((artwork) => (
 				<li key={artwork.image_id}>
-					<h3>{artwork.title}</h3>
 					<p>Artist: {artwork.artist_title || 'Unknown'}</p>
+					<button onClick={() => onArtworkSelect(artwork)}>
+						{artwork.title}
+					</button>
 				</li>
 			))}
 		</>
