@@ -1,7 +1,7 @@
 import { useState } from 'react';
-
 import { searchArtworks } from '../api';
 import { SearchForm } from './SearchForm';
+import { ArtworkDetails } from './ArtworkDetails';
 import { Footer } from './Footer';
 
 import './App.css';
@@ -47,12 +47,7 @@ export function App() {
 			<div>
 				<h2>Search Results</h2>
 				<ul>
-					{searchResults.map((artwork) => (
-						<li key={artwork.image_id}>
-							<h3>{artwork.title}</h3>
-							<p>Artist: {artwork.artist_title || 'Unknown'}</p>
-						</li>
-					))}
+					<ArtworkDetails searchResults={searchResults} />
 				</ul>
 				{showInvalidQuery && <p>{showInvalidQuery}</p>}
 			</div>
