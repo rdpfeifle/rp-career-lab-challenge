@@ -1,11 +1,15 @@
+import './ArtworkDetails.css';
+
 export function ArtworkDetails({ searchResults, onArtworkSelect }) {
 	return (
 		<>
 			{searchResults.map((artwork) => (
 				<li key={artwork.image_id}>
-					<p>Artist: {artwork.artist_title || 'Unknown'}</p>
-					<button onClick={() => onArtworkSelect(artwork)}>
-						{artwork.title}
+					<button
+						className="artwork-btn"
+						onClick={() => onArtworkSelect(artwork)}
+					>
+						{artwork.title} by {artwork.artist_title || 'Unknown'}.
 					</button>
 				</li>
 			))}
