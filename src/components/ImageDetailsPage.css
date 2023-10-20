@@ -1,0 +1,49 @@
+.details-page {
+	text-align: center;
+}
+
+.content {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.artist-title {
+	color: rgb(219, 44, 44);
+}
+
+.image-details {
+	background-color: transparent;
+	border: 1.2px solid #000;
+	font-weight: 600;
+	color: #000;
+	border-radius: 3px;
+	padding: 8px 18px;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.image-details:hover {
+	background-color: #000;
+	color: #fff;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+	.details-page {
+		margin: 40px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.details-page {
+		margin: 5px 10px;
+	}
+}

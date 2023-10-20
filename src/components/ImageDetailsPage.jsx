@@ -6,12 +6,18 @@ export function ImageDetailsPage({ artwork, goBack }) {
 	const imgUrl = `https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`;
 
 	return (
-		<div>
-			<button onClick={goBack}>Back</button>
-			<p>
-				The art {title} was created by {artist_title ? artist_title : 'Unknown'}{' '}
-				artist.
-			</p>
+		<div className="details-page">
+			<div className="content">
+				<h2>
+					{title} by{' '}
+					<span className="artist-title">
+						{artist_title ? artist_title : 'Unknown artist'}
+					</span>
+				</h2>
+				<button className="image-details" onClick={goBack}>
+					Back
+				</button>
+			</div>
 			<img alt={thumbnail ? thumbnail.alt_text : title} src={imgUrl} />
 		</div>
 	);
