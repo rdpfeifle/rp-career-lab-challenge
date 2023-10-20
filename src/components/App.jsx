@@ -13,23 +13,7 @@ export function App() {
 	const [selectedArtwork, setSelectedArtwork] = useState(null);
 
 	function onSearchSubmit(query) {
-		// Search for the users's query.
-		searchArtworks(query).then((json) => {
-			const filteredResults = json.data.filter((artwork) => {
-				const lowerCaseQuery = query.toLowerCase();
-				const lowerCaseTitle = artwork.title.toLowerCase();
-				// first, double check if the artist_title exists
-				const lowerCaseArtistTitle =
-					artwork.artist_title && artwork.artist_title.toLowerCase();
-
-				return (
-					lowerCaseTitle.includes(lowerCaseQuery) ||
-					// first, double check if the lowerCaseArtistTitle exists
-					(lowerCaseArtistTitle &&
-						lowerCaseArtistTitle.includes(lowerCaseQuery))
-				);
-			});
-
+		searchArtworks(query).then((filteredResults) => {
 			if (query.trim() === '' || filteredResults.length === 0) {
 				setSearchResults([]);
 				setShowInvalidQuery(
