@@ -11,6 +11,7 @@ export function App() {
 	const [searchResults, setSearchResults] = useState([]);
 	const [showInvalidQuery, setShowInvalidQuery] = useState('');
 	const [selectedArtwork, setSelectedArtwork] = useState(null);
+	const [searchButtonClicked, setSearchButtonClicked] = useState(false);
 
 	function onSearchSubmit(query) {
 		searchArtworks(query).then((filteredResults) => {
@@ -23,6 +24,7 @@ export function App() {
 				setSearchResults(filteredResults);
 				setShowInvalidQuery('');
 			}
+			setSearchButtonClicked(true);
 		});
 	}
 
@@ -37,7 +39,7 @@ export function App() {
 					<h1>TCL Career Lab Art Finder</h1>
 					<SearchForm onSearchSubmit={onSearchSubmit} />
 					<div>
-						<h2>Search Results</h2>
+						{searchButtonClicked && <h2>Search Results</h2>}
 						<ul>
 							<ArtworkDetails
 								searchResults={searchResults}
