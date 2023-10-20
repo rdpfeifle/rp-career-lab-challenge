@@ -42,13 +42,13 @@ Your team has agreed on the following requirements for the app's MVP (minimum vi
 - [x] In the `App` component, render
   - [x] the `SearchForm` component and
   - [x] a list of results including _the name of the piece_ and _the artist who created the piece_.
-- [ ] Create an `ImageDetailsPage` component.
-- [ ] Render `ImageDetailsPage` when the user clicks the title of a piece in the list of results. 💡
-- [ ] In the `ImageDetailsPage` component, render
-  - [ ] the name of the piece
-  - [ ] the artist who created the piece
-  - [ ] the image associated with the piece (don't forget its alt text!)
-  - [ ] a back button that returns the user to the list of results
+- [x] Create an `ImageDetailsPage` component.
+- [x] Render `ImageDetailsPage` when the user clicks the title of a piece in the list of results. 💡
+- [x] In the `ImageDetailsPage` component, render
+  - [x] the name of the piece
+  - [x] the artist who created the piece
+  - [x] the image associated with the piece (don't forget its alt text!)
+  - [x] a back button that returns the user to the list of results
 
 ### 💡 On rendering `ImageDetailsPage`
 
