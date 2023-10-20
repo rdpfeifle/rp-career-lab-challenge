@@ -30,6 +30,8 @@ Start the application by executing the following command. It will open a new win
 npm start
 ```
 
+![Demo](/public/career-lab.gif)
+
 ## ✅ Acceptance criteria
 
 Your team has agreed on the following requirements for the app's MVP (minimum viable product). A teammate has implemented some of these criteria already, and it's your job to finish the rest. Start with `./src/components/App.jsx` to familiarize yourself with your teammate's work, then build on top of it.
