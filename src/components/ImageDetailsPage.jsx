@@ -11,7 +11,7 @@ export function ImageDetailsPage({ artwork, goBack }) {
 				<h2>
 					{title} by{' '}
 					<span className="artist-title">
-						{artist_title ? artist_title : 'Unknown artist'}
+						{artist_title || 'Unknown Artist'}
 					</span>
 				</h2>
 				<button className="image-details" onClick={goBack}>

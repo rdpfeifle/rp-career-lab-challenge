@@ -9,7 +9,7 @@ export function ArtworkDetails({ searchResults, onArtworkSelect }) {
 						className="artwork-btn"
 						onClick={() => onArtworkSelect(artwork)}
 					>
-						{artwork.title} by {artwork.artist_title || 'Unknown'}.
+						{artwork.title} by {artwork.artist_title || 'Unknown Artist'}.
 					</button>
 				</li>
 			))}
