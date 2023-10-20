@@ -10,6 +10,7 @@ import './App.css';
 export function App() {
 	const [searchResults, setSearchResults] = useState([]);
 	const [showInvalidQuery, setShowInvalidQuery] = useState('');
+	const [selectedArtwork, setSelectedArtwork] = useState(null);
 
 	function onSearchSubmit(query) {
 		// Search for the users's query.
@@ -41,18 +42,31 @@ export function App() {
 		});
 	}
 
+	function handleBack() {
+		setSelectedArtwork(!selectedArtwork);
+	}
+
 	return (
-		<div className="App">
-			<h1>TCL Career Lab Art Finder</h1>
-			<SearchForm onSearchSubmit={onSearchSubmit} />
-			<div>
-				<h2>Search Results</h2>
-				<ul>
-					<ArtworkDetails searchResults={searchResults} />
-				</ul>
-				{showInvalidQuery && <p>{showInvalidQuery}</p>}
-			</div>
-			<Footer />
-		</div>
+		<>
+			{!selectedArtwork ? (
+				<div className="App">
+					<h1>TCL Career Lab Art Finder</h1>
+					<SearchForm onSearchSubmit={onSearchSubmit} />
+					<div>
+						<h2>Search Results</h2>
+						<ul>
+							<ArtworkDetails
+								searchResults={searchResults}
+								onArtworkSelect={setSelectedArtwork}
+							/>
+						</ul>
+						{showInvalidQuery && <p>{showInvalidQuery}</p>}
+					</div>
+					<Footer />
+				</div>
+			) : (
+				<ImageDetailsPage artwork={selectedArtwork} goBack={handleBack} />
+			)}
+		</>
 	);
 }
