@@ -27,7 +27,7 @@ export function SearchForm({ onSearchSubmit }) {
 				value={query}
 				onChange={handleInputChange}
 			/>
-			<button className="button" type="submit">
+			<button aria-label="Search for artworks" className="button" type="submit">
 				Search
 			</button>
 		</form>

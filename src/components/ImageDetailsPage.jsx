@@ -14,7 +14,12 @@ export function ImageDetailsPage({ artwork, goBack }) {
 						{artist_title || 'Unknown Artist'}
 					</span>
 				</h2>
-				<button className="image-details" onClick={goBack}>
+				<button
+					aria-label="Go back to homepage"
+					className="image-details"
+					type="button"
+					onClick={goBack}
+				>
 					Back
 				</button>
 			</div>

@@ -51,7 +51,10 @@ export function App() {
 					<Footer />
 				</div>
 			) : (
-				<ImageDetailsPage artwork={selectedArtwork} goBack={handleBack} />
+				<>
+					<ImageDetailsPage artwork={selectedArtwork} goBack={handleBack} />{' '}
+					<Footer />
+				</>
 			)}
 		</>
 	);
