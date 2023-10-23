@@ -38,9 +38,7 @@ export async function searchArtworks(query) {
 	 * Get data from `ARTWORKS_SEARCH_RESULT.json`, which is served by our
 	 * local server.
 	 */
-	const requestUrl = `/ARTWORKS_SEARCH_RESULT.json?query=${encodeURIComponent(
-		query,
-	)}`;
+	const requestUrl = `/ARTWORKS_SEARCH_RESULT.json`;
 
 	const headers = { Accept: 'application/json' };
 
