@@ -42,28 +42,30 @@ export async function searchArtworks(query) {
 
 	const headers = { Accept: 'application/json' };
 
-	return fetch(requestUrl, { headers }).then((res) => {
-		if (res.ok) {
-			return res.json().then((json) => {
-				const filteredResults = json.data.filter((artwork) => {
-					const lowerCaseQuery = query.toLowerCase();
-					const lowerCaseTitle = artwork.title.toLowerCase();
-					// first, double check if the artist_title exists
-					const lowerCaseArtistTitle =
-						artwork.artist_title && artwork.artist_title.toLowerCase();
+	try {
+		const res = await fetch(requestUrl, { headers });
 
-					return (
-						lowerCaseTitle.includes(lowerCaseQuery) ||
-						// first, double check if the lowerCaseArtistTitle exists
-						(lowerCaseArtistTitle &&
-							lowerCaseArtistTitle.includes(lowerCaseQuery))
-					);
-				});
-
-				return filteredResults;
-			});
-		} else {
-			console.error('Failed to fetch data from the server');
+		if (!res.ok) {
+			throw new Error('Failed to fetch data.');
 		}
-	});
+
+		const json = await res.json();
+		const filteredResults = json.data.filter((artwork) => {
+			const lowerCaseQuery = query.toLowerCase();
+			const lowerCaseTitle = artwork.title.toLowerCase();
+			// first, double check if the artist_title exists
+			const lowerCaseArtistTitle =
+				artwork.artist_title && artwork.artist_title.toLowerCase();
+
+			return (
+				lowerCaseTitle.includes(lowerCaseQuery) ||
+				// first, double check if the lowerCaseArtistTitle exists
+				(lowerCaseArtistTitle && lowerCaseArtistTitle.includes(lowerCaseQuery))
+			);
+		});
+
+		return filteredResults;
+	} catch (error) {
+		console.error('Unable to retrieve artworks data at this time.', error);
+	}
 }
