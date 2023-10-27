@@ -59,7 +59,7 @@ export async function searchArtworks(query) {
 
 			return (
 				lowerCaseTitle.includes(lowerCaseQuery) ||
-				// first, double check if the lowerCaseArtistTitle exists
+				// Check if lowerCaseArtistTitle exists to correctly trigger showInvalidQuery
 				(lowerCaseArtistTitle && lowerCaseArtistTitle.includes(lowerCaseQuery))
 			);
 		});
