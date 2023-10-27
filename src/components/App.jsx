@@ -13,19 +13,18 @@ export function App() {
 	const [selectedArtwork, setSelectedArtwork] = useState(null);
 	const [searchButtonClicked, setSearchButtonClicked] = useState(false);
 
-	function onSearchSubmit(query) {
-		searchArtworks(query).then((filteredResults) => {
-			if (query.trim() === '' || filteredResults.length === 0) {
-				setSearchResults([]);
-				setShowInvalidQuery(
-					'No results found for the artist or title. Please try a different search.',
-				);
-			} else {
-				setSearchResults(filteredResults);
-				setShowInvalidQuery('');
-			}
-			setSearchButtonClicked(true);
-		});
+	async function onSearchSubmit(query) {
+		const filteredResults = await searchArtworks(query);
+		if (query.trim() === '' || filteredResults.length === 0) {
+			setSearchResults([]);
+			setShowInvalidQuery(
+				'No results found for the artist or title. Please try a different search.',
+			);
+		} else {
+			setSearchResults(filteredResults);
+			setShowInvalidQuery('');
+		}
+		setSearchButtonClicked(true);
 	}
 
 	function handleBack() {
